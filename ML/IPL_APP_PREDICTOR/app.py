@@ -87,19 +87,22 @@ def create_demo_models():
     cities = ['Mumbai', 'Kolkata', 'Chennai', 'Bengaluru', 'Delhi', 'Hyderabad', 'Ahmedabad', 'Pune']
     
     # Create a placeholder dataframe for fitting the transformer
-    dummy_X = pd.DataFrame({
-        'batting_team': ['Mumbai Indians'],
-        'bowling_team': ['Chennai Super Kings'],
-        'city': ['Mumbai'],
-        'runs_left': [50],
-        'balls_left': [30],
-        'wickets_left': [5],
-        'total_runs_x': [180],
-        'crr': [8.0],
-        'rrr': [10.0]
-    })
     
-    dummy_y = pd.Series([1])
+
+    dummy_X = pd.DataFrame({
+    'batting_team': ['Mumbai Indians', 'Chennai Super Kings'],
+    'bowling_team': ['Chennai Super Kings', 'Mumbai Indians'],
+    'city': ['Mumbai', 'Chennai'],
+    'runs_left': [50, 30],
+    'balls_left': [30, 24],
+    'wickets_left': [5, 3],
+    'total_runs_x': [180, 160],
+    'crr': [8.0, 7.5],
+    'rrr': [10.0, 7.5]
+    })
+
+    dummy_y = pd.Series([1, 0])
+    
     
     
     trf = ColumnTransformer([
